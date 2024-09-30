@@ -34,7 +34,7 @@
 
 
 
-<div class="signup-process pt-8">
+<div class="signup-process pt-8 w-full  h-dvh">
     <button on:click={lastStep}  class="self-start underline w-7 h-7 bg-[#353535] grid place-items-center rounded-md">
         <img src={backArrow} alt="">
     </button>
