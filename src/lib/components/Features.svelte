@@ -40,7 +40,7 @@
             <span class="w-[5px] h-[5px] rounded-full bg-[#191A1C]"></span>
             <span class="w-[5px] h-[5px] rounded-full bg-[#191A1C]"></span>
         </div>
-        <button on:click={onNext} class="h-[55px] w-full bg-[#191A1C] text-white rounded-full capitalize font-medium">
+        <button on:click={onNext} class="h-[55px] w-full bg-[#191A1C] hover:border text-white rounded-full capitalize font-medium">
                 continue
         </button>
     </div>

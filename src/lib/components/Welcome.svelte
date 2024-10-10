@@ -20,7 +20,7 @@
             </div>
             <div class="w-full flex flex-col gap-1 items-center">
                 <div class="flex flex-col gap-2 w-full">
-                    <button class="h-[55px] w-full bg-[#191A1C] text-white rounded-full capitalize font-medium">
+                    <button class="h-[55px] w-full bg-[#191A1C] text-white hover:border rounded-full capitalize font-medium">
                         <a href="/SignUp/sign-up">
                             Enter App
                         </a>

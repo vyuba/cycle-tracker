@@ -24,10 +24,10 @@
                     </div>
                 </div>
                 <div class="flex flex-col gap-2 w-full">
-                    <button on:click={onNext} class="h-[55px] w-full bg-[#191A1C] text-white rounded-full capitalize font-medium">
+                    <button on:click={onNext} class="h-[55px] w-full bg-[#191A1C] text-white rounded-full capitalize font-medium hover:border">
                             Next
                     </button>
-                    <button class="h-[55px] w-full bg-transparent border border-[#353535] text-white rounded-full capitalize font-medium">
+                    <button class="h-[55px] w-full bg-transparent border border-[#353535] text-white rounded-full capitalize font-medium hover:border-white">
                             skip
                     </button>
                 </div>

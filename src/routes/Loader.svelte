@@ -31,7 +31,7 @@ import image5 from '$lib/images/Place your Design.png'
 
     .loader{
         background: #080808;
-        position: fixed;
+        position: absolute;
         width: 100%;
         height: 100vh;
         inset: 0;

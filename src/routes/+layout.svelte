@@ -43,7 +43,9 @@
   <!-- <Header /> -->
 
   <main>
-    <slot />
+    <div class="main-app">
+      <slot />
+    </div>
   </main>
 <!-- 
   <footer>
@@ -58,6 +60,14 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    width: 100%;
+    max-width: 500px;
+    background-color: rgb(13, 13, 22);
+    margin: 0px auto;
+    position: relative;
+  }
+  .main-app {
+
   }
 
   main {
@@ -69,6 +79,7 @@
     max-width: 64rem;
     margin: 0 auto;
     box-sizing: border-box;
+    
   }
 
   footer {

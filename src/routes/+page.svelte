@@ -25,9 +25,7 @@
 	//   }
 	// };
 
-	import profile from "$lib/images/Group 118.svg";
-  import plus from "$lib/images/plus.svg";
-  import albumImage from "$lib/images/Rectangle 4.png";
+
   import backArrow from "$lib/images/backArrow.svg";
 
 

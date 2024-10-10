@@ -1,34 +1,28 @@
 <script>
     import profile from "$lib/images/Group 118.svg";
   export let onNext
-  function moveFocus(current, direction, event = null) {
-  const inputs = document.querySelectorAll('.verification-container input');
-  const index = Array.prototype.indexOf.call(inputs, current);
+  let code = ['', '', '', ''];  // Initialize an array to store 4 digits
 
-  if (direction === 'next' && current.value.length === 1) {
-    if (index < inputs.length - 1) {
-      inputs[index + 1].focus();
+  function handleInput(target, index) {
+    code[index] = target.value;  // Store the input at the correct index
+    if (target.value && index < code.length - 1) {
+      document.getElementById(`code-${index + 1}`).focus();  // Move to next input
     }
   }
 
-  if (direction === 'prev' && event.key === 'Backspace' && !current.value) {
-    if (index > 0) {
-      inputs[index - 1].focus();
+  function moveFocus(target, direction, event, index) {
+    if (event.key === 'Backspace' && target.value === '' && index > 0) {
+      document.getElementById(`code-${index - 1}`).focus();  // Move to previous input
     }
   }
-}
 
-function handleInput(current) {
-  // Allow only numbers
-  if (!/^\d$/.test(current.value)) {
-    current.value = '';
-    return;
+  function handleNext() {
+    if (code.join('') === '1234') {
+      // Move to the next step
+      onNext();
+    }
   }
-  moveFocus(current, 'next');
-  current.style.animation = 'none';
-  current.offsetHeight; /* trigger reflow */
-  current.style.animation = null;
-}
+  alert(`this is your code: 1234`)
   </script>
   
   <section>
@@ -42,16 +36,23 @@ function handleInput(current) {
                 <div class="w-full text-center gap-2 flex flex-col ">
                     <span class="text-lg font-bold">Enter verification code</span>
                     <div class="verification-container">
-                        <input type="text" maxlength="1" on:input={event => handleInput(event.target)} on:keydown={event => moveFocus(event.target, 'prev', event)} />
-                        <input type="text" maxlength="1" on:input={event => handleInput(event.target)} on:keydown={event => moveFocus(event.target, 'prev', event)} />
-                        <input type="text" maxlength="1" on:input={event => handleInput(event.target)} on:keydown={event => moveFocus(event.target, 'prev', event)} />
-                        <input type="text" maxlength="1" on:input={event => handleInput(event.target)} on:keydown={event => moveFocus(event.target, 'prev', event)} />
-                                    </div>
+                      {#each code as value, index}
+                        <input
+                          type="text"
+                          id={`code-${index}`}    
+                          maxlength="1"          
+                          bind:value={code[index]} 
+                          on:input={(event) => handleInput(event.target, index)}
+                          on:keydown={(event) => moveFocus(event.target, 'prev', event, index)}
+                          class="input-code"   
+                        />
+                    {/each}
+                    </div>
                 </div>
             </div>
             <div class="w-full flex flex-col gap-1 items-center">
                 <span class="text-xs font-medium capitalize">We will send you a verification code to this number</span>
-                <button on:click={onNext} class="h-[55px] w-full bg-[#191A1C] text-white rounded-full capitalize font-medium">
+                <button on:click={handleNext} class="h-[55px] w-full bg-[#191A1C] text-white rounded-full capitalize font-medium hover:border">
                         Next
                 </button>
             </div>
